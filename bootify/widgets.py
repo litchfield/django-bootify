@@ -52,7 +52,6 @@ class BootRadioSelect(RadioSelect):
         css = self.base_css
         if inline:
             css += '-inline'
-        #print css, inline
         attrs = attrs or {}
         set_css(attrs, css)
         super(BootRadioSelect, self).__init__(attrs, choices)
@@ -66,5 +65,6 @@ class BootCheckboxSelectMultiple(CheckboxSelectMultiple):
         css = self.base_css
         if inline:
             css += '-inline'
+        attrs = attrs or {}
         set_css(attrs, css)
         super(BootCheckboxSelectMultiple, self).__init__(attrs, choices)
