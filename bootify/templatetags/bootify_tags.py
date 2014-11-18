@@ -31,4 +31,12 @@ def required(field):
         field.field.widget.attrs['required'] = 'required'
     except:
         pass
-    return field    
+    return field
+
+@register.filter
+def autocomplete(field, value="off"):
+    try:
+        field.field.widget.attrs['autocomplete'] = value
+    except:
+        pass
+    return field
