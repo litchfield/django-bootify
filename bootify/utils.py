@@ -1,4 +1,6 @@
 from django.forms.widgets import *
+from .widgets import *
+
 
 CSS = set(['radio', 'checkbox'])
 CSS_INLINE = set(['radio-inline', 'checkbox-inline'])
@@ -39,7 +41,6 @@ FORM_CONTROLS_WIDGETS = tuple(FORM_CONTROLS_WIDGETS)
 
 try:
     from django.forms.widgets import ChoiceInput
-    from widgets import *
     CLASS_MAP = {
         RadioSelect: BootRadioSelect,
         CheckboxSelectMultiple: BootCheckboxSelectMultiple,
