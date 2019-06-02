@@ -1,5 +1,5 @@
 from django.forms.widgets import *
-from django.forms.widgets import ChoiceInput, RadioChoiceInput, CheckboxChoiceInput, ChoiceFieldRenderer
+from django.forms.widgets import ChoiceWidget as ChoiceInput, RadioSelect as RadioChoiceInput, CheckboxInput as CheckboxChoiceInput #, ChoiceFieldRenderer
 from django.forms.utils import flatatt
 from django.utils.encoding import force_text
 from django.utils.html import format_html, format_html_join
@@ -49,18 +49,18 @@ class _RadioChoiceInput(_ChoiceInputMixin, RadioChoiceInput):
 class _CheckboxChoiceInput(_ChoiceInputMixin, CheckboxChoiceInput):
     pass
 
-class _ChoiceFieldRenderer(ChoiceFieldRenderer):
-    def render(self):
-        return mark_safe('\n'.join([ force_text(widget) for widget in self ]))
+# class _ChoiceFieldRenderer(ChoiceFieldRenderer):
+#     def render(self):
+#         return mark_safe('\n'.join([ force_text(widget) for widget in self ]))
 
-class BootRadioFieldRenderer(_ChoiceFieldRenderer):
-    choice_input_class = _RadioChoiceInput
+# class BootRadioFieldRenderer(_ChoiceFieldRenderer):
+#     choice_input_class = _RadioChoiceInput
 
-class BootCheckboxFieldRenderer(_ChoiceFieldRenderer):
-    choice_input_class = _CheckboxChoiceInput
+# class BootCheckboxFieldRenderer(_ChoiceFieldRenderer):
+#     choice_input_class = _CheckboxChoiceInput
 
 class BootRadioSelect(RadioSelect):
-    renderer = BootRadioFieldRenderer
+    #renderer = BootRadioFieldRenderer
     base_css = 'radio'
 
     def __init__(self, attrs=None, choices=(), inline=False):
@@ -73,7 +73,7 @@ class BootRadioSelect(RadioSelect):
         super(BootRadioSelect, self).__init__(attrs, choices)
 
 class BootCheckboxSelectMultiple(CheckboxSelectMultiple):
-    renderer = BootCheckboxFieldRenderer
+    #renderer = BootCheckboxFieldRenderer
     base_css = 'checkbox'
 
     def __init__(self, attrs=None, choices=(), inline=False):
